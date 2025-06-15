@@ -1,0 +1,13 @@
+services:
+  mongodb:
+    hostname: ${MONGO_HOSTNAME}
+    networks:
+      - shared-net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    image: mongo:latest
+    volumes:
+      - mongo-volume:/data/db
+    ports:
+      - "27017:27017"
